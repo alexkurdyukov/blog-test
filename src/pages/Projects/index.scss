@@ -1,0 +1,183 @@
+.projects {
+	padding: 2rem 0;
+	overflow: hidden;
+	
+	&__wrapper {
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 33px;
+		max-width: 1300px;
+	}
+	@media (max-width: 1376px) {
+		padding: 2rem 20px;
+	}
+}
+
+.project {
+	display: flex;
+	flex-direction: column;
+	padding: 25px;
+	background-color: #112240;
+	transition: 0.4s all linear;
+	cursor: pointer;
+	&:hover {
+		box-shadow: 0 0 15px 5px $mainColor;
+	}
+	&__content {
+		margin-bottom: 15px;
+	}
+	&__icons {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 45px;
+	}
+	&__header {
+		margin-bottom: 28px;
+		font-size: 35px;
+		line-height: 38px;
+		color: #a8b2d1;
+		display: flex;
+		align-items: baseline;
+	}
+	&__description {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 27px;
+		color: #d9d9d9;
+		min-height: 81px;
+	}
+	&__technologies {
+		display: flex;
+		column-gap: 20px;
+		flex-wrap: wrap;
+		margin-top: auto;
+	}
+	&-popup {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 80vw;
+		background-color: $secondColor;
+		position: fixed;
+		border: 1px solid #ffffff;
+		z-index: 11;
+		padding: 15px;
+		@media (max-width: 1200px) {
+			top: 8vh;
+		}
+		&__technologies {
+			display: flex;
+			margin-bottom: 10px;
+			@media (max-width: 600px) {
+				font-size: 15px;
+			}
+			@media (max-width: 450px) {
+				font-size: 12px;
+			}
+		}
+		&__header {
+			text-align: center;
+			font-size: 35px;
+			margin-bottom: 10px;
+			@media (max-width: 600px) {
+				font-size: 15px;
+			}
+			&-name {
+				font-size: 20px;
+				@media (max-width: 600px) {
+					font-size: 15px;
+				}
+			}
+		}
+		&__description {
+			margin-bottom: 20px;
+			padding: 5px;
+			@media (max-width: 600px) {
+				font-size: 13px;
+			}
+		}
+		&__image {
+			height: 450px;
+			width: 550px;
+			margin: 0 auto;
+			margin-bottom: 10px;
+			@media (max-width: 1200px) {
+				width: 400px;
+				height: 300px;
+			}
+			@media (max-width: 800px) {
+				width: 350px;
+				height: 250px;
+			}
+		}
+		&__content {
+			display: flex;
+			margin-top: auto;
+			gap: 25px;
+			@media (max-width: 1000px) {
+				flex-direction: column;
+			}
+			&__description {
+				max-width: 300px;
+			}
+		}
+		&__buttons {
+			display: flex;
+			gap: 20px;
+		}
+		&__button {
+			border: 1px solid #ffffff;
+			color: #ffffff;
+			display: flex;
+			margin-top: 3px;
+			align-items: center;
+			gap: 5px;
+			padding: 5px;
+			&:hover {
+				box-shadow: 0 0 10px 5px #b961ff;
+				color: #b961ff;
+				border: 1px solid #b961ff;
+			}
+			@media (max-width: 600px) {
+				font-size: 13px;
+			}
+		}
+		&_green {
+			color: $mainColor;
+			font-size: 20px;
+			@media (max-width: 600px) {
+				font-size: 13px;
+			}
+		}
+	}
+}
+
+.popup__overlay {
+	position: absolute;
+	width: 100vw;
+	height: 300vh;
+	backdrop-filter: blur(2px);
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+
+@keyframes popupLight {
+	50% {
+		box-shadow: 0 0 15px 5px $mainColor;
+		border: 1px solid $mainColor;
+	}
+}
+
+.popup {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 11;
+}

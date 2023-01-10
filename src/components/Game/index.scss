@@ -1,0 +1,69 @@
+.square {
+  width: 90px;
+  height: 90px;
+  background-color: #020c1b;
+  border: 1px #B961FF solid;
+  transition: all 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B961FF;
+  font-size: 80px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px #B961FF solid;
+  background-color: #112240;
+  padding: 30px 20px;
+  z-index: 1;
+  animation: light 6s infinite linear;
+  animation-delay: 1.5s;
+  &__board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  &__resoult{
+    position: absolute;
+    top: 30%;
+    left:0;
+    font-size: 20px;
+  }
+  &__button{
+    color:#B961FF ;
+    border: 1px solid #B961FF ;
+    animation: light 6s linear; 
+    &:hover{
+      color: #ffffff;
+      box-shadow:0 0 15px 5px #B961FF ;
+    }
+  }
+  &__popup{
+    position: absolute;
+    width: 110%;
+    height: 40%;
+    top: 30%;
+    left: -5%;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    z-index: 2;
+    opacity: 0.5;
+    &-text{
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes light {
+    50% {box-shadow:0 0 15px 5px #B961FF;}
+}
