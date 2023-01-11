@@ -1,79 +1,46 @@
 import React from "react";
-import Button from "../Button";
-import { ReactComponent as HeaderLogo } from "../../assets/images/header-logo.svg";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
-import { scrollAvailable, scrollNotAvailable } from "../../utils/scrollBlock";
+import { routesConstant } from "../../Routes/routes";
 
 const headerData = [
-	{ name: "intro", id: "01" },
-	{ name: "about", id: "02" },
-	{ name: "projects", id: "03" },
-	{ name: "contacts", id: "04" },
+	{ name: "blog", number: "01", id: 1, path: routesConstant.blog },
+	{ name: "portfolio", number: "02", id:2, path: routesConstant.portfolio },
+	{ name: "about", number: "03", id:3, path: routesConstant.about },
 ];
 
-const HeaderDesktop = ({ page, setPage, setIsLoading }) => {
-	const screenLoad = () => {
-		setIsLoading(true);
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 3000);
-	};
+const HeaderDesktop = ({ page, setPage }) => {
 	return (
-		<>
-			<div
-				onClick={() => {
-					screenLoad();
-				}}
-				className="header__logo-container"
-			>
-				<HeaderLogo />
-			</div>
-			<nav className={`header__nav nav`}>
-				{headerData.map((item) => (
-					<div
-						className={`nav__item ${item.name === page ? "--active" : ""}`}
-						key={item.id}
-						onClick={() => {
-							setPage(item.name);
-						}}
-					>
-						<span className="nav__item-number">{item.id}</span>.{" "}
-						<span className="nav__item-text">{item.name}</span>
-					</div>
-				))}
-			</nav>
-			<Button linkType>Resume</Button>
-		</>
+		<nav className={`header__nav nav`}>
+			{headerData.map((item) => (
+				<NavLink 
+					to={item.path}
+					className={`nav__item ${item.name === page ? "--active" : ""}`}
+					key={item.id}
+					onClick={() => {
+						setPage(item.name);
+					}}
+				>
+					<span className="nav__item-number">{item.number}</span>.{" "}
+					<span className="nav__item-text">{item.name}</span>
+				</NavLink>
+			))}
+		</nav>
 	);
 };
 
-const HeaderMobile = ({ setPage, setIsLoading }) => {
-	const screenLoad = () => {
-		screenLoad()
-	};
+const HeaderMobile = () => {
 	const [isOpen, setOpen] = useState(false);
-	const [overlayIsOpen, setOverlayOpen] = useState(false);
 	return (
 		<>
 			<div
-				className={`overlay ${overlayIsOpen ? "--active" : ""}`}
-				onClick={() => {
-					setOverlayOpen(false);
-					setOpen(false);
-					scrollAvailable();
-				}}
+				className={`overlay`}
 			></div>
 			<div className={`header-mobile__menu ${isOpen ? "--active" : ""}`}>
 				<div className="mobile-menu">
 					{headerData.map((item) => (
 						<div
-							onClick={() => { 
-								setPage(item.name);
-								setOpen(!isOpen);
-								setOverlayOpen(!overlayIsOpen);
-								scrollAvailable();
-							}}
 							className="mobile-menu__element"
 							key={item.id}
 						>
@@ -83,36 +50,11 @@ const HeaderMobile = ({ setPage, setIsLoading }) => {
 					))}
 				</div>
 			</div>
-			<div
-				className="header-mobile__logo"
-				onClick={() => {
-					setIsLoading(true);
-					setTimeout(() => {
-						setIsLoading(false);
-					}, 3000);
-				}}
-			>
-				<HeaderLogo />
-			</div>
-			<div
-				onClick={() => {
-					setOpen(!isOpen);
-					setOverlayOpen(!overlayIsOpen);
-					scrollNotAvailable();
-				}}
-				className={`burger burger__container ${isOpen ? "--active" : ""}`}
-			>
-				<div className="burger__wrapper">
-					<div className="burger_top"></div>
-					<div className="burger_middle"></div>
-					<div className="burger_bottom"></div>
-				</div>
-			</div>
 		</>
 	);
 };
 
-const Header = ({ setPage, page, setIsLoading }) => {
+const Header = ({ setPage, page }) => {
 	const windowWidth = useWindowWidth();
 	return (
 		<div className="header">
@@ -121,13 +63,11 @@ const Header = ({ setPage, page, setIsLoading }) => {
 					<HeaderDesktop
 						setPage={setPage}
 						page={page}
-						setIsLoading={setIsLoading}
 					/>
 				) : (
 					<HeaderMobile
 						setPage={setPage}
 						page={page}
-						setIsLoading={setIsLoading}
 					/>
 				)}
 			</div>

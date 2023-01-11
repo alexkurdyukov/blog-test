@@ -1,0 +1,164 @@
+.blog{
+	display: flex;
+	flex-direction: column;
+}
+.intro {
+	display: flex;
+	position: relative;
+	padding: 20px 0;
+	@media (max-width: 1200px) {
+		padding: 2rem 5vw;
+	}
+	&__wrapper {
+		display: flex;
+		gap: 91px;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		z-index: 1;
+		@media (max-width: 840px) {
+			flex-direction: column;
+		}
+	}
+	&__subtitle {
+		font-family: "Inter";
+		font-weight: 600;
+		font-size: 35px;
+		line-height: 73px;
+		display: flex;
+		align-items: center;
+		color: #a8b2d1;
+		@media (max-width: 650px) {
+			font-size: 28px;
+			line-height: 40px;
+		}
+		@media (max-width: 400px) {
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+	}
+	&__title {
+		font-weight: 300;
+		font-size: 25px;
+		line-height: 38px;
+		color: #64ffda;
+		display: flex;
+	}
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		max-width: 650px;
+		font-style: normal;
+	}
+	&__description {
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: 400;
+		font-size: 23px;
+		line-height: 34px;
+		color: #a8b2d1;
+		margin-bottom: 40px;
+		@media (max-width: 650px) {
+			font-size: 23px;
+			line-height: 30px;
+		}
+	}
+	&__button {
+		max-width: 150px;
+	}
+	&__name {
+		font-weight: 700;
+		font-size: 60px;
+		line-height: 90px;
+		display: flex;
+		align-items: center;
+		color: #d9d9d9;
+		@media (max-width: 650px) {
+			font-size: 40px;
+		}
+		@media (max-width: 420px) {
+			font-size: 30px;
+		}
+	}
+}
+
+$background: $bgColor;
+$foreground: white;
+
+@mixin gitchText($offset, $text) {
+	content: $text;
+	position: absolute;
+	left: $offset;
+	top: $offset;
+	clip: rect(0, 830px, 0, 0);
+	background-color: $background;
+	color: $foreground;
+	animation: glitch 4s infinite alternate-reverse;
+	animation-delay: 4s;
+}
+
+.glitch {
+	margin-right: 20px;
+}
+
+.glitch {
+	color: $background;
+	color: $mainColor;
+	animation: fadeWhite 4s forwards;
+	animation-delay: 2s;
+	position: relative;
+	&:after {
+		@include gitchText(2px, "FrontendDeveloper");
+	}
+}
+
+@keyframes fadeWhite {
+	100% {
+		color: #b961ff;
+	}
+}
+
+@keyframes glitch {
+	$steps: 20;
+	@for $i from 0 through $steps {
+		#{percentage($i * (1 / $steps))} {
+			clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+		}
+	}
+}
+
+.posts {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 20px;
+	gap: 30px;
+	&__header{
+		font-size:45px;
+	}
+}
+
+.post{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 40px;
+	background-color: #112240;
+	max-width: 1200px;
+	margin: 0 auto;
+	&__title{
+		font-size: 35px;
+	}
+	&__image{
+		width: 900px;
+		margin-bottom: 10px;
+	}
+	&__date{
+		color: #64ffda
+	}
+}

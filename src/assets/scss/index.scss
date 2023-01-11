@@ -34,14 +34,17 @@ body {
   font-size: $mainSize;
   color: #a8b2d1;
 }
-html { overflow: hidden; }
+::-webkit-scrollbar {
+  display: none;
+}
+
 .layout {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .wrapper {
   margin: 0 auto;
@@ -94,7 +97,6 @@ html { overflow: hidden; }
   animation: rotation 3s forwards;
 }
 
-
 @keyframes circleGrow {
   to {
     opacity: 0;
@@ -131,7 +133,6 @@ html { overflow: hidden; }
     transform: scale(0.9);
   }
 }
-
 
 $background: $bgColor;
 $foreground: white;

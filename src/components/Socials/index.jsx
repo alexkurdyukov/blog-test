@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as TwitterIcon } from "../../assets/images/icon-twitter.svg";
 import { ReactComponent as InstagramIcon } from "../../assets/images/icon-instagram.svg";
 import { ReactComponent as GithubIcon } from "../../assets/images/icon-github.svg";
 import { ReactComponent as TelegramIcon } from "../../assets/images/icon-telegram.svg";

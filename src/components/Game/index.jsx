@@ -24,14 +24,11 @@ const Game = () => {
     setWinner(null);
   };
   const stateDefinder = () => {
-    console.log(`function is working , now state is ${totalGameState}`);
     if (!winner && gameState == "draw") {
       setTotalGameState("draw");
-      
     }
     if ((winner === "o" || winner === "x") && gameState == "draw") {
       setTotalGameState(winner);
-      
     }
   };
   useEffect(() => {
