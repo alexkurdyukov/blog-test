@@ -3,6 +3,7 @@ import Game from "../../components/Game";
 import TyppingPoint from "../../utils/typingPoint";
 import TypeText from "../../utils/typpingEffect";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
+import { useSelector } from "react-redux";
 
 const postsData = [
 	{
@@ -51,40 +52,12 @@ const postsData = [
 
 const Blog = ({ page, setPage }) => {
 	const windowWidth = useWindowWidth();
-
+	const posts = useSelector((state) => state.data.data.posts);
 	return (
 		<div className="blog">
-			<section className="intro">
-				<div className="intro__wrapper wrapper">
-					<div className="intro__content">
-						<p className="intro__title">
-							Hi, this is the blog of
-							<TyppingPoint />
-						</p>
-						<h1 className="intro__container">
-							<div className="intro__name glitch">Kurdyukov Alexey</div>
-							<div className="intro__subtitle">
-								<TypeText speed={800} words={`Let's Grow up Together`} />
-							</div>
-						</h1>
-						<p className="intro__description">
-							This blog is dedicated to web development in general and frontend
-							in particular. Here I will post brief information about the
-							technologies I am interested in, interesting articles on habr and
-							stackoverflow.
-						</p>
-						{windowWidth && windowWidth > 1200 && (
-							<p>
-								Play with me in tic tac toe or scroll down to see new posts ;)
-							</p>
-						)}
-					</div>
-					{windowWidth && windowWidth > 1200 && <Game />}
-				</div>
-			</section>
 			<section className="posts">
 				<h2 className="posts__header">Posts</h2>
-				{postsData.map((post) => {
+				{posts && posts.map((post) => {
 					return (
 						<div className="post" key={post.id}>
 							<h3 className="post__title">{post.title}</h3>

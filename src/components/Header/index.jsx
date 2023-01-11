@@ -5,9 +5,11 @@ import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { routesConstant } from "../../Routes/routes";
 
 const headerData = [
-	{ name: "blog", number: "01", id: 1, path: routesConstant.blog },
-	{ name: "portfolio", number: "02", id:2, path: routesConstant.portfolio },
-	{ name: "about", number: "03", id:3, path: routesConstant.about },
+	{ name: "intro", number: "01", id: 1, path: routesConstant.intro },
+	{ name: "blog", number: "02", id: 2, path: routesConstant.blog },
+	{ name: "portfolio", number: "03", id:3, path: routesConstant.portfolio },
+	{ name: "about", number: "04", id:4, path: routesConstant.about },
+	{ name: "contacts", number: "05", id:5, path: routesConstant.contacts },
 ];
 
 const HeaderDesktop = ({ page, setPage }) => {
@@ -37,19 +39,20 @@ const HeaderMobile = () => {
 			<div
 				className={`overlay`}
 			></div>
-			<div className={`header-mobile__menu ${isOpen ? "--active" : ""}`}>
+			<nav className={`header-mobile__menu ${isOpen ? "--active" : ""}`}>
 				<div className="mobile-menu">
 					{headerData.map((item) => (
-						<div
+						<NavLink
+							to={item.path}
 							className="mobile-menu__element"
 							key={item.id}
 						>
 							<span className="mobile-menu__number">{item.id}</span>.{" "}
 							<span className="mobile-menu__text">{item.name}</span>
-						</div>
+						</NavLink>
 					))}
 				</div>
-			</div>
+			</nav>
 		</>
 	);
 };

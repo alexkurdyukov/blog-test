@@ -1,0 +1,82 @@
+.loader {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $bgColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    &__text {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+  }
+    &__circle {
+      border-radius: 50%;
+      border: 5px dashed #a8b2d1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      animation: 1s forwards circleGrow;
+      animation-delay: 2s;
+    }
+    &__img {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+    }
+  }
+  .circle__inner {
+    border-radius: 50%;
+    border: 6px dashed #a8b2d1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    animation: rotation 3s forwards;
+  }
+  
+  @keyframes circleGrow {
+    to {
+      opacity: 0;
+      width: 500px;
+      height: 500px;
+    }
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
+  @keyframes clacksAnim {
+    0% {
+      transform: scale(0.9);
+    }
+    20% {
+      transform: scale(0.8);
+    }
+    40% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(0.8);
+    }
+    80% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.9);
+    }
+  }

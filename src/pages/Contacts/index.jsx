@@ -93,7 +93,6 @@ const Contacts = () => {
 						<Button type={`submit`} disabled={!isValid}>
 							Sumbit
 						</Button>
-
 						<Button
 							onClick={(el) => {
 								setButtonDisabled(!isButtonDisabled);

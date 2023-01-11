@@ -1,17 +1,17 @@
-import { useState } from "react";
 import { scrollNotAvailable } from "../../utils/scrollBlock";
-
-const Project = ({project}) => {
+import { ReactComponent as FolderImage } from "../../assets/images/folder-image.svg";
+import { ReactComponent as LinkImage } from "../../assets/images/link-image.svg";
+const Project = ({project,setProjectOpen,setCardIndex,setProjectState}) => {
     return (
 		<div
 			className="project"
 			onClick={() => {
 				setProjectOpen(true);
-				setCardIndex(index);
+				setCardIndex(project.id);
 				setProjectState(project);
 				scrollNotAvailable();
 			}}
-			key={index}
+			key={project.id}
 		>
 			<div className="project__icons icons">
 				<a href={project.verselLink} className="icons__folder" target="_blank">
@@ -27,7 +27,7 @@ const Project = ({project}) => {
 			</div>
 
 			<div className="project__technologies">
-				{project.technologies.map((technology, index) => (
+				{project.technologies.map((technology,index) => (
 					<div className="technology" key={index}>
 						{technology}
 					</div>

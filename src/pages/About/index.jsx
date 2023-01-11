@@ -251,7 +251,6 @@ const hardSkillsData = [
 const HardSkills = () => {
 	const [flag, setFlag] = useState();
 	useEffect(() => {
-		console.log(flag);
 		return () => {
 			setFlag(true);
 		};
