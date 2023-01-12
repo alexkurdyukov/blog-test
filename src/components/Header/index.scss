@@ -1,6 +1,6 @@
 .header {
 	padding: 35px 0px;
-	@media (max-width:1100px){
+	@media (max-width: 1100px) {
 		padding: 25px 0 15px;
 	}
 	&__wrapper {
@@ -29,8 +29,8 @@
 		display: flex;
 	}
 }
-.button__resume{
-	color:#112240;
+.button__resume {
+	color: #112240;
 	border: 1px solid #112240;
 }
 .nav {
@@ -145,6 +145,15 @@
 	}
 }
 
+.resume__button {
+	padding: 10px 20px;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	transition: 0.4s all ease-in;
+	&:hover {
+		color: $mainColor;
+	}
+}
 .overlay {
 	position: absolute;
 	transform: translateX(-100%);
@@ -156,7 +165,7 @@
 	height: 100vh;
 	top: 0;
 	left: 0;
-	&.--active{
-		transform:translateX(0)
+	&.--active {
+		transform: translateX(0);
 	}
 }

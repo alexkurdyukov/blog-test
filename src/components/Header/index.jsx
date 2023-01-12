@@ -47,11 +47,10 @@ const HeaderDesktop = ({ page, setPage, setIsLoading }) => {
 					</NavLink>
 				))}
 			</nav>
-			<Button linkType>
-				<a download="" href={resumeSrc}>
-					Resume
-				</a>
-			</Button>
+
+			<a className="resume resume__button" download="" href={resumeSrc}>
+				<span className="resume__text">Resume</span>
+			</a>
 		</>
 	);
 };

@@ -1,9 +1,9 @@
-const Checkbox = ({ filter }) => {
+const Checkbox = ({ element, onChangeFunction }) => {
 	return (
-		<label class="container">
-			{filter.technologyName}
+		<label onChange={onChangeFunction} className="container">
+			{element.technologyName}
 			<input type="checkbox" />
-			<span class="checkmark"></span>
+			<span className="checkmark"></span>
 		</label>
 	);
 };

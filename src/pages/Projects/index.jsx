@@ -26,15 +26,32 @@ const Projects = () => {
 	const [cardIndex, setCardIndex] = useState(0);
 	const [projectState, setProjectState] = useState({});
 	const projectsData = useSelector((state) => state.data.data.projects);
-	
-	console.log(projectsData);
+
+	const [chosenTechnologies, setChosenTechnologies] = useState([]);
+
+	useEffect(() => {
+		console.log(chosenTechnologies);
+	}, [chosenTechnologies]);
+
+	const onChangeFunction = () => {
+		setChosenTechnologies(...chosenTechnologies, filter.technologyName);
+		console.log("работает");
+	};
 	return (
 		<>
 			<section className="projects">
 				<div className="filters">
 					<div className="filters__wrapper">
-						{filtersData.map((filter) => {
-							return <Checkbox filter={filter} />;
+						{filtersData.map((element) => {
+							return (
+								<Checkbox
+									onChangeFunction={onChangeFunction}
+									setChosenTechnologies={setChosenTechnologies}
+									chosenTechnologies={chosenTechnologies}
+									element={element}
+									key={element.id}
+								/>
+							);
 						})}
 					</div>
 				</div>
