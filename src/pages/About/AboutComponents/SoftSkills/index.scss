@@ -1,0 +1,31 @@
+.soft-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    position: relative;
+    padding: 10px 0;
+    @media (max-width: 900px) {
+      gap: 15px;
+    }
+  }
+  
+  .soft-skill {
+    padding: 10px 30px;
+    border: 1px solid #a8b2d1;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    opacity: 0;
+    text-align: center;
+    animation: softSkillPointing 1s ease-in forwards;
+    @media (max-width: 600px) {
+      font-size: 18px;
+    }
+    @media (max-width: 430px) {
+      font-size: 13px;
+      padding: 5px 10px;
+    }
+  }
+  

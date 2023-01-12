@@ -1,0 +1,38 @@
+.navigation-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 400px;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	margin: 0 auto 20px;
+	@media (max-width: 750px) {
+		max-width: 300px;
+	}
+	@media (max-width: 550px) {
+		max-width: 250px;
+	}
+}
+
+.keen-slider {
+	width: 100%;
+	margin: auto;
+}
+.slider-box {
+	overflow: hidden;
+}
+
+.slider__image {
+	width: 450px;
+	height: 450px;
+	margin: 0 auto;
+	border-radius: 20px;
+	@media (max-width: 1150px) {
+		width: 350px;
+		height: 350px;
+	}
+	@media (max-width: 550px) {
+		width: 250px;
+		height: 250px;
+	}
+}

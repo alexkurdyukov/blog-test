@@ -1,0 +1,20 @@
+.post {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 40px;
+	background-color: #112240;
+	max-width: 1200px;
+	margin: 0 auto;
+	&__title {
+		font-size: 35px;
+	}
+	&__image {
+		width: 900px;
+		margin-bottom: 10px;
+	}
+	&__date {
+		color: #64ffda;
+	}
+}

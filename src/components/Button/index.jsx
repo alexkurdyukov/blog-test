@@ -4,11 +4,17 @@ const Button = ({ className, children, linkType, onClick, type, href }) => {
 	return (
 		<>
 			{linkType ? (
-				<a href={href} className={`button ${className ? className : ""}`} target='_blank'>{children}</a>
+				<a
+					href={href}
+					className={`button ${className ? className : ""}`}
+					target="_blank"
+				>
+					{children}
+				</a>
 			) : (
-				<button 
-					type={`${type? type:'button'}`}
-					onClick={onClick}	
+				<button
+					type={`${type ? type : "button"}`}
+					onClick={onClick}
 					className={`button ${className ? className : ""}`}
 				>
 					{children}
@@ -18,4 +24,4 @@ const Button = ({ className, children, linkType, onClick, type, href }) => {
 	);
 };
 
-export default Button;
+export default Button ;

@@ -1,13 +1,10 @@
 .header {
 	padding: 35px 0px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	@media (max-width:1100px){
 		padding: 25px 0 15px;
 	}
 	&__wrapper {
-		
+		width: 88%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -65,6 +62,51 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px 5vw;
+}
+
+.burger {
+	&__container {
+		padding: 10px;
+		transition: all linear 0.4s;
+		z-index: 4;
+		position: relative;
+	}
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		transition: all linear 0.5s;
+	}
+	&_top {
+		height: 2px;
+		width: 35px;
+		background-color: $mainColor;
+	}
+	&_middle {
+		height: 2px;
+		width: 35px;
+		background-color: $mainColor;
+	}
+	&_bottom {
+		height: 2px;
+		width: 35px;
+		background-color: $mainColor;
+	}
+}
+
+.burger__container.--active .burger__wrapper {
+	transform: rotate(360deg);
+}
+.burger__container.--active .burger_top {
+	transform: translateY(10px) rotate(-45deg);
+	background-color: #fc0b42;
+}
+.burger__container.--active .burger_middle {
+	opacity: 0;
+}
+.burger__container.--active .burger_bottom {
+	transform: translateY(-14px) rotate(45deg);
+	background-color: #fc0b42;
 }
 
 .header-mobile__menu {

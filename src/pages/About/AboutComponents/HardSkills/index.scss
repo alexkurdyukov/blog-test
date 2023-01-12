@@ -1,0 +1,50 @@
+.hard-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    padding: 0px 40px;
+    @media (max-width: 900px) {
+      gap: 20px;
+    }
+    @media (max-width: 700px) {
+      padding: 0 10px;
+    }
+  }
+  .hard-skill {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    gap: 3px;
+    @media (max-width: 1000px) {
+      font-size: 18px;
+    }
+    @media (max-width: 800px) {
+      font-size: 15px;
+    }
+    &__container {
+      height: 30px;
+      width: 100%;
+      border-radius: 10px;
+      background-color: #112240;
+      @media (max-width: 800px) {
+        height: 20px;
+      }
+    }
+    &__innerline {
+      background: linear-gradient(90deg, rgb(100, 255, 218), rgb(185, 97, 255));
+      height: 30px;
+      max-width: 100%;
+      border-radius: 10px;
+      opacity: 0;
+      width: 0;
+      animation: innerlineChanges 1s ease-in forwards;
+      @media (max-width: 800px) {
+        height: 20px;
+      }
+    }
+    &__description {
+      display: flex;
+      justify-content: space-between;
+    }
+  }

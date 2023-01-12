@@ -1,0 +1,24 @@
+.biography {
+	&-container {
+		font-size: 18px;
+		@media (max-width: 550px) {
+			font-size: 12px;
+		}
+	}
+	&_green {
+		color: $mainColor;
+		font-size: 23px;
+		@media (max-width: 450px) {
+			font-size: 18px;
+		}
+		@media (max-width: 400px) {
+			font-size: 13px;
+		}
+	}
+	&_violet {
+		color: #b961ff;
+	}
+	&_orange {
+		color: #e07c08;
+	}
+}

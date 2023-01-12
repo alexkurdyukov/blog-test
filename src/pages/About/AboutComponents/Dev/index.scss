@@ -1,0 +1,29 @@
+.dev{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    &__wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__item{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-radius: 20px;
+      border: 1px solid #ffffff;
+      padding: 20px;
+    }
+    &__time{
+      color:#e07c08;
+      font-size: 15px;
+    }
+    &__company{
+      color: #b961ff;
+      font-size: 15px;
+    }
+    &__description{
+      font-size: 18px;
+    }
+  }

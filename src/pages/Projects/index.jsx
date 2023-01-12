@@ -7,28 +7,51 @@ import Button from "../../components/Button";
 import { Popup } from "../../components/Popup";
 import { Project } from "../../components/Project";
 import { useSelector } from "react-redux";
+import { Checkbox } from "../../UI/Checkbox";
+
+const filtersData = [
+	{ technologyName: "HTML", id: 1 },
+	{ technologyName: "CSS", id: 2 },
+	{ technologyName: "SCSS", id: 3 },
+	{ technologyName: "SCSS modules", id: 4 },
+	{ technologyName: "Javascript", id: 5 },
+	{ technologyName: "Typescript", id: 6 },
+	{ technologyName: "React", id: 7 },
+	{ technologyName: "Redux", id: 8 },
+	{ technologyName: "ReduxToolKit", id: 9 },
+];
 
 const Projects = () => {
 	const [projectOpen, setProjectOpen] = useState(false);
 	const [cardIndex, setCardIndex] = useState(0);
 	const [projectState, setProjectState] = useState({});
 	const projectsData = useSelector((state) => state.data.data.projects);
+	
 	console.log(projectsData);
 	return (
 		<>
 			<section className="projects">
+				<div className="filters">
+					<div className="filters__wrapper">
+						{filtersData.map((filter) => {
+							return <Checkbox filter={filter} />;
+						})}
+					</div>
+				</div>
 				<div className="projects__wrapper wrapper">
-					{projectsData && projectsData.map((project) => (
-						<Project
-							key={project.id}
-							project={project}
-							setProjectOpen={setProjectOpen}
-							setCardIndex={setCardIndex}
-							setProjectState={setProjectState}
-						/>
-					))}
+					{projectsData &&
+						projectsData.map((project) => (
+							<Project
+								key={project.id}
+								project={project}
+								setProjectOpen={setProjectOpen}
+								setCardIndex={setCardIndex}
+								setProjectState={setProjectState}
+							/>
+						))}
 				</div>
 			</section>
+
 			{projectOpen && (
 				<>
 					<Popup setProjectOpen={setProjectOpen} projectState={projectState}>

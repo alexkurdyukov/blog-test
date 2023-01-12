@@ -1,6 +1,8 @@
 .projects {
 	padding: 2rem 0;
-	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 	&__wrapper {
 		margin: 0 auto;
 		display: grid;
@@ -179,4 +181,17 @@
 	top: 50%;
 	left: 50%;
 	z-index: 11;
+}
+
+.filters {
+	margin: 0 auto;
+	padding: 20px 30px;
+	background-color: #112240;
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		max-width: 1200px;
+		gap: 33px;
+		
+	}
 }
