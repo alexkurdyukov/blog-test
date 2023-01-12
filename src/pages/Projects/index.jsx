@@ -33,23 +33,24 @@ const Projects = () => {
 		console.log(chosenTechnologies);
 	}, [chosenTechnologies]);
 
-	const onChangeFunction = () => {
-		setChosenTechnologies(...chosenTechnologies, filter.technologyName);
-		console.log("работает");
+	const onChangeFunction = (filter) => {
+		if (!chosenTechnologies.includes(filter.technologyName)) {
+			setChosenTechnologies(chosenTechnologies.push(filter.technologyName));
+		}
 	};
 	return (
 		<>
 			<section className="projects">
 				<div className="filters">
 					<div className="filters__wrapper">
-						{filtersData.map((element) => {
+						{filtersData.map((filter) => {
 							return (
 								<Checkbox
 									onChangeFunction={onChangeFunction}
 									setChosenTechnologies={setChosenTechnologies}
 									chosenTechnologies={chosenTechnologies}
-									element={element}
-									key={element.id}
+									filter={filter}
+									key={filter.id}
 								/>
 							);
 						})}

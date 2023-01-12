@@ -29,29 +29,24 @@
     background-color: #eee;
   }
   
-
   .container:hover input ~ .checkmark {
     background-color: #ccc;
   }
   
-
   .container input:checked ~ .checkmark {
     background-color: #2196F3;
   }
   
-
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
   
-
   .container input:checked ~ .checkmark:after {
     display: block;
   }
   
- 
   .container .checkmark:after {
     left: 9px;
     top: 5px;
