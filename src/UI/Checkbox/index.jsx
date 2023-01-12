@@ -5,9 +5,13 @@ const Checkbox = ({
 	chosenTechnologies,
 }) => {
 	return (
-		<label onChange={() => onChangeFunction(filter)} className="container">
+		<label className="container">
 			{filter.technologyName}
-			<input type="checkbox" />
+			<input
+				type="checkbox"
+				checked={chosenTechnologies.includes(filter.technologyName)}
+				onChange={() => onChangeFunction(filter.technologyName)}
+			/>
 			<span className="checkmark"></span>
 		</label>
 	);

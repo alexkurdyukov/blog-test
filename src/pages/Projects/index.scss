@@ -1,5 +1,5 @@
 .projects {
-	padding: 2rem 0;
+	padding: 2rem;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -8,10 +8,18 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 		gap: 33px;
-		max-width: 1300px;
-	}
-	@media (max-width: 1376px) {
-		padding: 2rem 20px;
+		max-width: 1200px;
+		@media (max-width: 1200px) {
+			grid-template-columns: repeat(2, minmax(350px, 1fr));
+			max-width: 800px
+		}
+		@media (max-width: 800px) {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			max-width: 600px;
+		}
+		
 	}
 }
 
@@ -185,13 +193,21 @@
 
 .filters {
 	margin: 0 auto;
-	padding: 20px 30px;
+	padding: 20px 35px;
 	background-color: #112240;
 	&__wrapper {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		max-width: 1200px;
 		gap: 33px;
-		
+		@media (max-width: 1250px) {
+			max-width: 800px;
+		}
+		@media (max-width: 800px) {
+			max-width: 600px;
+		}
+		@media (max-width: 570px) {
+			max-width: 300px;
+		}
 	}
 }

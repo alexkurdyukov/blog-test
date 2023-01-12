@@ -18,24 +18,53 @@ const filtersData = [
 	{ technologyName: "Typescript", id: 6 },
 	{ technologyName: "React", id: 7 },
 	{ technologyName: "Redux", id: 8 },
-	{ technologyName: "ReduxToolKit", id: 9 },
+	{ technologyName: "RTK", id: 9 },
 ];
 
 const Projects = () => {
 	const [projectOpen, setProjectOpen] = useState(false);
+
 	const [cardIndex, setCardIndex] = useState(0);
+
 	const [projectState, setProjectState] = useState({});
+
 	const projectsData = useSelector((state) => state.data.data.projects);
 
-	const [chosenTechnologies, setChosenTechnologies] = useState([]);
+	const [chosenTechnologies, setChosenTechnologies] = useState([
+		"HTML",
+		"CSS",
+		"SCSS",
+		"SCSS modules",
+		"Javascript",
+		"Typescript",
+		"React",
+		"Redux",
+		"RTK",
+	]);
+
+	const [filtredCards, setFiltredCards] = useState(projectsData);
 
 	useEffect(() => {
-		console.log(chosenTechnologies);
+		if (projectsData) {
+			const filtredArray = projectsData.filter((card) => {
+				const flag = card.technologies.some((item) =>
+					chosenTechnologies.includes(item.trim())
+				);
+				if (flag) {
+					return card;
+				}
+			});
+			setFiltredCards(filtredArray);
+		}
 	}, [chosenTechnologies]);
 
 	const onChangeFunction = (filter) => {
-		if (!chosenTechnologies.includes(filter.technologyName)) {
-			setChosenTechnologies(chosenTechnologies.push(filter.technologyName));
+		const newArray = [...chosenTechnologies];
+		if (!chosenTechnologies.includes(filter)) {
+			setChosenTechnologies([...chosenTechnologies, filter]);
+		} else {
+			const filtredArray = newArray.filter((item) => item !== filter);
+			setChosenTechnologies(filtredArray);
 		}
 	};
 	return (
@@ -57,8 +86,8 @@ const Projects = () => {
 					</div>
 				</div>
 				<div className="projects__wrapper wrapper">
-					{projectsData &&
-						projectsData.map((project) => (
+					{filtredCards &&
+						filtredCards.map((project) => (
 							<Project
 								key={project.id}
 								project={project}

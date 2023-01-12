@@ -10,7 +10,7 @@ const Blog = () => {
 				<h2 className="posts__header">Posts</h2>
 				{posts &&
 					posts.map((post) => {
-						return <Post post={post}/>;
+						return <Post post={post} key={post.id} />;
 					})}
 			</section>
 		</div>
