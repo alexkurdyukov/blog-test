@@ -7,6 +7,9 @@
 	background-color: #112240;
 	max-width: 1200px;
 	margin: 0 auto;
+	&__description{
+		text-align: justify
+	}
 	&__title {
 		font-size: 35px;
 	}

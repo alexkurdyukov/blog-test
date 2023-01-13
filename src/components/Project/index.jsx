@@ -1,6 +1,7 @@
 import { scrollNotAvailable } from "../../utils/scrollBlock";
 import { ReactComponent as FolderImage } from "../../assets/images/folder-image.svg";
 import { ReactComponent as LinkImage } from "../../assets/images/link-image.svg";
+
 const Project = ({project,setProjectOpen,setCardIndex,setProjectState}) => {
     return (
 		<div
@@ -14,10 +15,10 @@ const Project = ({project,setProjectOpen,setCardIndex,setProjectState}) => {
 			key={project.id}
 		>
 			<div className="project__icons icons">
-				<a href={project.verselLink} className="icons__folder" target="_blank">
+				<a href={project.verselLink} className="icons__folder" target="_blank" rel="noreferrer">
 					<FolderImage />
 				</a>
-				<a href={project.githubLink} className="icons__link" target="_blank">
+				<a href={project.githubLink} className="icons__link" target="_blank" rel="noreferrer">
 					<LinkImage />
 				</a>
 			</div>

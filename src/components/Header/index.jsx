@@ -6,7 +6,7 @@ import { routesConstant } from "../../Routes/routes";
 import { scrollAvailable, scrollNotAvailable } from "../../utils/scrollBlock";
 import { ReactComponent as HeaderLogo } from "../../assets/images/header-logo.svg";
 import resumeSrc from "../../assets/docs/Resume.pdf";
-import Button from "../Button";
+
 const headerData = [
 	{ name: "intro", number: "01", id: 1, path: routesConstant.intro },
 	{ name: "blog", number: "02", id: 2, path: routesConstant.blog },
@@ -16,20 +16,9 @@ const headerData = [
 ];
 
 const HeaderDesktop = ({ page, setPage, setIsLoading }) => {
-	const screenLoad = () => {
-		setIsLoading(true);
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 3000);
-	};
 	return (
 		<>
-			<div
-				onClick={() => {
-					screenLoad();
-				}}
-				className="header__logo-container"
-			>
+			<div className="header__logo-container">
 				<HeaderLogo />
 			</div>
 			<nav className={`header__nav nav`}>
@@ -56,9 +45,6 @@ const HeaderDesktop = ({ page, setPage, setIsLoading }) => {
 };
 
 const HeaderMobile = ({ setPage, setIsLoading }) => {
-	const screenLoad = () => {
-		screenLoad();
-	};
 	const [isOpen, setOpen] = useState(false);
 	const [overlayIsOpen, setOverlayOpen] = useState(false);
 	return (
@@ -93,12 +79,6 @@ const HeaderMobile = ({ setPage, setIsLoading }) => {
 			</div>
 			<div
 				className="header-mobile__logo"
-				onClick={() => {
-					setIsLoading(true);
-					setTimeout(() => {
-						setIsLoading(false);
-					}, 3000);
-				}}
 			>
 				<HeaderLogo />
 			</div>

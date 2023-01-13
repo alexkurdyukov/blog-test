@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { scrollAvailable } from "../../utils/scrollBlock";
 
 const Popup = ({ children, setProjectOpen }) => {

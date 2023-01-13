@@ -9,22 +9,25 @@ import { About } from "./pages/About";
 import { Intro } from "./pages/Intro";
 import { Loader } from "./components/Loader";
 import "./assets/scss/index.scss";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { routesConstant } from "./Routes/routes.js";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDataAsync } from "./store/asyncActions/fetchAsyncData.js";
-import { Redirect } from "react-router-dom";
 
 const App = () => {
+	const dispatch = useDispatch();
+	const windowWidth = useWindowWidth();
+	const navigate = useNavigate();
 	useEffect(() => {
 		dispatch(fetchDataAsync());
-	}, []);
+	},[]);
+
+	useEffect(() => {
+		navigate(routesConstant.intro);
+	},[]);
 
 	const [page, setPage] = useState("intro");
 	const [isLoading, setIsLoading] = useState(true);
-
-	const windowWidth = useWindowWidth();
-	const dispatch = useDispatch();
 
 	const loadingFlag = useSelector((state) => state.data.loading);
 
