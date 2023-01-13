@@ -11,7 +11,7 @@ const lines = [
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6],
-];
+]; 
 
 const Game = () => {
   const [totalGameState, setTotalGameState] = useState("start");
@@ -45,7 +45,7 @@ const Game = () => {
     };
     const emptyIndexes = squares
       .map((square, index) => (square === null ? index : null))
-      .filter((val) => val !== null);
+      .filter((val) => val !== null); 
     const playerWon = linesThatAre("x", "x", "x").length > 0;
     const computerWon = linesThatAre("o", "o", "o").length > 0;
     if (playerWon) {

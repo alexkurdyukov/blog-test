@@ -34,9 +34,9 @@ const App = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setIsLoading(false);
-		}, 2000);
-	}, []);
-
+		}, 2000)
+	}, [])
+	
 	return (
 		<>
 			{isLoading && !loadingFlag ? (
